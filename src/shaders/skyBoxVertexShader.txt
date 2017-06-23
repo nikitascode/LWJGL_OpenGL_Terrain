@@ -1,0 +1,14 @@
+#version 400 core
+
+in vec3 vertices;
+
+uniform mat4 projectionMatrix;
+uniform mat4 viewMatrix;
+
+out vec3 tex_coords;
+
+void main() {
+        tex_coords = vertices;
+        mat4 world = projectionMatrix * viewMatrix;
+        gl_Position = world * vec4(vertices, 1);
+}
